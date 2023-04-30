@@ -1,0 +1,109 @@
+<div class="ml-2"><p>Bienvenido <span class="font-semibold">{{userName}}</span></p>
+
+<div type="button" class="bg-[#242424] text-[white] font-medium p-1 w-fit rounded-md cursor-pointer hover:bg-[#3c3c3c] hover:border-transparent transition ease-in duration-200" (click)="cerrarSesion()">Cerrar sesion</div></div>
+<div class="main relative">
+
+  <span class="text text-[5vmin] font-normal font">Reservas</span>
+
+  <ng-container *ngIf="bookings[0] != null; else error">
+    
+<!-- IDA -->
+<div *ngFor="let flight of bookings">
+
+<div class="card border-slate-900 border-t border-dashed">
+
+    <div class="flex items-center mb-3 mt-3"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" style="width: 1.5rem; height: 1.5rem;"><path d="M19.616 3.047a5.995 5.995 0 00-2.536 1.547l-8.188 8.373a3.384 3.384 0 00-.403.498l-1.287 1.186a.903.903 0 01-.594.24l-2.58.05a.913.913 0 00-.976.616.943.943 0 00.473 1.155l2.56 1.012a.91.91 0 01.492.468l1.038 2.27a.905.905 0 001.16.474.934.934 0 00.575-.987l-.114-2.36a.918.918 0 01.282-.709l1.173-1.12a3.358 3.358 0 00.54-.448l1.27-1.298.609.621 2.886 6.062a.452.452 0 00.732.123l.504-.516a1.883 1.883 0 00.487-1.728l-1.582-7.085a1.838 1.838 0 01.478-1.685l2.887-2.952a6.154 6.154 0 001.41-2.28l.022-.059a1.112 1.112 0 00-1.318-1.469z"></path><path d="M12.03 8.22a.458.458 0 00-.257-.765L5.517 6.068a1.792 1.792 0 00-1.69.498l-.52.53a.46.46 0 00.12.73L9.073 10.9c.358.18.56-.104.833-.399z"></path></svg><span class="info text-[2.5vmin]">Información de reserva N° <span class="font-semibold">{{flight.id | slice:0:8}}</span></span></div>
+
+    <div class="asd m-auto p-1 rounded-sm">
+      <span class="text-[2.5vmin] pr-2">IDA</span> {{flight.departureFlight.departure.time | date:'E. dd LLLL yy'}}</div>
+        
+
+    <div class="content">
+        <div class="header">
+            <span class="bg-gray-300 p-2 text-center font-semibold">N° de vuelo</span>
+            <span class="bg-gray-100 my-auto p-2">{{flight.departureFlight.id}}</span>
+        
+        </div>
+            <div class="header">
+                <span class="flex bg-gray-300 p-2 text-center justify-center items-center font-semibold">Desde <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[3.5vmin] h-[3.5vmin]">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                  </svg>
+                   Hacia</span>
+                <span class="bg-gray-100 my-auto p-2">{{ flight.departureFlight.departure.city }} - {{ flight.departureFlight.arrival.city }}</span>
+            </div>
+            <div class="header">
+                <span class="bg-gray-300 p-2 text-center font-semibold">Salida</span>
+                <span class="bg-gray-100 my-auto p-2">{{flight.departureFlight.departure.time | date:'HH:mm'}}</span>
+            </div>
+        <div class="header">
+            <span class="bg-gray-300 p-2 text-center font-semibold">Llegada</span>
+            <span class="bg-gray-100 my-auto p-2">{{flight.departureFlight.arrival.time | date:'HH:mm'}}</span>
+        </div>
+    </div>
+
+
+    <div class="asd m-auto p-1 rounded-sm justify-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span>Duración del vuelo: {{duration(flight.departureFlight.departure.time, flight.departureFlight.arrival.time)}} | Operado por {{flight.departureFlight.airline}}</span></div>
+    </div>
+
+    <!-- vuelta -->
+
+    <div class="card" *ngIf="flight.returnFlight.departure != null">
+    
+        <div class="asd m-auto p-1 mt-2">
+          <span class="text-[2.5vmin] pr-2">VUELTA</span>{{flight.returnFlight.departure.time | date:'E. dd LLLL yy'}}</div>
+            
+    
+        <div class="content">
+            <div class="header">
+                <span class="bg-gray-300 p-2 text-center font-semibold">N° de vuelo</span>
+                <span class="bg-gray-100 my-auto p-2">{{flight.returnFlight.id}}</span>
+            
+            </div>
+                <div class="header">
+                    <span class="flex bg-gray-300 p-2 text-center items-center justify-center font-semibold">Desde <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[3.5vmin] h-[3.5vmin]">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                      </svg>
+                       Hacia</span>
+                    <span class="bg-gray-100 my-auto p-2">{{flight.returnFlight.departure.city}} - {{flight.returnFlight.arrival.city}}</span>
+                </div>
+                <div class="header">
+                    <span class="bg-gray-300 p-2 text-center font-semibold">Salida</span>
+                    <span class="bg-gray-100 my-auto p-2">{{flight.returnFlight.departure.time | date:'HH:mm'}}</span>
+                </div>
+            <div class="header">
+                <span class="bg-gray-300 p-2 text-center font-semibold">Llegada</span>
+                <span class="bg-gray-100 my-auto p-2">{{flight.returnFlight.arrival.time | date:'HH:mm'}}</span>
+            </div>
+        </div>
+    
+    
+        <div class="asd m-auto p-1 rounded-sm justify-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      Duración del vuelo: {{duration(flight.returnFlight.departure.time, flight.returnFlight.arrival.time)}} | Operado por {{flight.returnFlight.airline}}</div>
+        </div>
+
+    </div> 
+  </ng-container>
+
+
+  <ng-template #error>
+    <div class="m-auto pt-4 flex justify-center">
+<img src="https://ik.imagekit.io/tvlk/image/imageResource/2020/07/10/1594367281441-5ec1b573d106b7aec243b19efa02ac56.svg?tr=dpr-2,h-96,q-75,w-96"/>
+</div>
+<div class="m-auto flex justify-center">
+<span class="text text-[3.2vmin] font-normal font">No se encontraron reservas</span>
+</div>
+
+<button routerLink="/" type="submit" class="m-auto flex items-center mt-8 p-2 pl-3 pr-2 rounded-lg bg-[#05203c] text-white font-semibold hover:bg-[#204a74] hover:border-transparent transition ease-in duration-200">Buscar vuelos
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.893 13.393l-1.135-1.135a2.252 2.252 0 01-.421-.585l-1.08-2.16a.414.414 0 00-.663-.107.827.827 0 01-.812.21l-1.273-.363a.89.89 0 00-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 01-1.81 1.025 1.055 1.055 0 01-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 01-1.383-2.46l.007-.042a2.25 2.25 0 01.29-.787l.09-.15a2.25 2.25 0 012.37-1.048l1.178.236a1.125 1.125 0 001.302-.795l.208-.73a1.125 1.125 0 00-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 01-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 01-1.458-1.137l1.411-2.353a2.25 2.25 0 00.286-.76m11.928 9.869A9 9 0 008.965 3.525m11.928 9.868A9 9 0 118.965 3.525" />
+      </svg>
+    </button> 
+
+  </ng-template>
+
+</div>

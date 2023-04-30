@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+html { 
+    font-family: 'Rubik', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f4f4f4;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+    height:100%;  
+}
+
+/* auth */
+
+.authbox{
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    width: 360px;
+    position: relative;
+    height: 400px;
+    margin-top: 50px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.titulo{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
+
+.boxcolor{
+    width: 100%;
+    background-color: #4300d2;
+    height: 130px;
+    align-items: center;
+    display: flex;
+}
+
+.authinput {
+    border-radius: 8px;
+    width: 70%;
+    padding: 10px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    color: #7e7a7a;
+    outline-color: #4300d2;
+    margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 500px) {
+    .authbox{
+        width: 330px;
+        height: 380px;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    .authbox{
+        width: 280px;
+    }
+    .titulo{
+        font-size: 18px;
+    }
+  }
+  

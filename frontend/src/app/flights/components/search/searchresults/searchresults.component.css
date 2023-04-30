@@ -1,0 +1,187 @@
+.main{
+  padding-bottom: 20px;
+}
+.title{
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 4vmin;
+    font-weight: 500;
+  }
+  
+  .airplane{
+    margin: auto;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .airline{
+     margin: auto;
+     width: 90px;
+  }
+  .detailDate {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 0fr 1fr 0fr;
+    color: #a09a9a;
+    font-size: 10px;
+    text-align: center;
+    align-content: center;
+  
+  }
+  .detailDate .city{
+    font-weight: 800;
+    font-size: 2.5vmin;
+    color: rgb(82, 82, 82);
+  }
+  .detailDate .hour{
+    font-weight:600;
+    font-size: 3.5vmin;
+    color: rgb(21, 21, 21);
+    width:100%;
+  }
+
+  .detailDate .date{
+    font-weight: normal;
+    font-size: 2vmin;
+  }
+  
+  #detailTime {
+    font-weight: bold;
+    font-size: 1.5vmin;
+    color: #134e4a;
+  }
+
+/*  */
+.loadercontainer{
+  width: 50%;
+}
+.loader {
+  width: 100%;
+  height: 4.8px;
+  display: inline-block;
+  position: relative;
+  background: rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  width: 0;
+  height: 4.8px;
+  background: #0095cc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: animFw 1s linear infinite;
+}
+
+@keyframes animFw {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+  
+/*  */
+  
+  .maininfo{
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 0.5fr;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: box-shadow .2s ease-out;
+  }
+  .maininfo:hover{
+
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+  }
+  
+  .timeContainer {
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+  }
+  
+  @media screen and (max-width: 825px) and (min-width: 280px) 
+  {
+    .title{
+      font-size: 20px;
+    }
+    .loader {
+      height: 5.8px;
+    }
+    .loader::after {
+      height: 5.8px;
+    }
+    .loadercontainer{
+      width: 92%;
+    }
+    .maininfo{
+      width: 92%;
+      padding: 10px;
+      height: 80%;
+      grid-template-columns: auto;
+      margin-bottom: 10px;
+    }
+    .timeContainer{
+      border-bottom: 1px rgb(174, 174, 174) solid;
+    }
+    .airline{
+      margin: auto;
+      width: 60px;
+      height: 40px;
+   }
+   .duration{
+ display: flex;
+ padding: 2px;
+ padding-right: 6px;
+ padding-left: 6px;
+   }
+   .durationtext{
+    font-size: 11px;
+   }
+   .price{
+   font-size: 20px;
+   }
+   .cheaper{
+    font-size: 12px;
+   }
+   .selected{
+     font-size: 12px;
+   }
+
+   .boxbuton{
+    font-size: 4vmin;
+   }
+
+   .detailDate .date{
+    font-weight: 700;
+    font-size: 10px;
+  }
+  .detailDate .city{
+    font-weight: 900;
+    font-size: 3.8vmin;
+  }
+  .detailDate .hour{
+    font-weight:900;
+    font-size: 5.2vmin;
+  }
+
+  }

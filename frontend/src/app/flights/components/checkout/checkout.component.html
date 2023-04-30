@@ -1,0 +1,93 @@
+<ng-container *ngIf="vueloIda != null; else error">
+
+    <div class="main">
+      <div #ida class="container">
+      
+          <div>
+          <img class="airline" src="assets/{{vueloIda.airline}}.png"/>
+          </div>
+        
+          <div class="timeContainer">
+            <div class="detailDate">
+              <div class="hour">{{vueloIda.departureTime | date:'HH:mm'}}</div>
+              <div class="city">{{vueloIda.departureCity}}</div>
+              <div class="date">{{vueloIda.departureTime | date:'E. dd LLLL yy'}}</div>
+            </div>
+            
+            <div class="m-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+              </svg>      
+            </div>
+        
+          <div class="detailDate">
+              <div class="hour">{{vueloIda.arrivalTime | date:'HH:mm'}}</div>
+              <div class="city">{{vueloIda.arrivalCity}}</div>
+              <div class="date">{{vueloIda.arrivalTime | date:'E. dd LLLL yy'}}</div>
+          </div>
+          </div>
+        
+            <div class="m-auto">
+              <div class="price text-center text-[3vmin] text-teal-950 font-semibold"><span class="text-[2.3vmin]">$</span>{{vueloIda.price | currency:'ARS':'' : '1.0-0'}}</div>
+            </div>
+        </div>
+      
+        <!--  -->
+        <ng-container *ngIf="vueloVuelta != null && !oneWay">
+        <div #vuelta class="container">
+      
+          <div>
+          <img class="airline" src="assets/{{vueloVuelta.airline}}.png"/>
+          </div>
+        
+          <div class="timeContainer">
+            <div class="detailDate">
+              <div class="hour">{{vueloVuelta.departureTime | date:'HH:mm'}}</div>
+              <div class="city">{{vueloVuelta.departureCity}}</div>
+              <div class="date">{{vueloVuelta.departureTime | date:'E. dd LLLL yy'}}</div>
+            </div>
+            
+            <div class="m-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/>
+              </svg>      
+            </div>
+        
+          <div class="detailDate">
+            <div class="hour">{{vueloVuelta.arrivalTime | date:'HH:mm'}}</div>
+            <div class="city">{{vueloVuelta.arrivalCity}}</div>
+            <div class="date">{{vueloVuelta.arrivalTime | date:'E. dd LLLL yy'}}</div>
+          </div>
+          </div>
+        
+            <div class="m-auto">
+              <div class="price text-center text-[3vmin] text-teal-950 font-semibold"><span class="text-[2.3vmin]">$</span>{{vueloVuelta.price | currency:'ARS':'' : '1.0-0'}}</div>
+            </div>
+        </div>
+      </ng-container>
+      
+      <!--  -->
+      <ng-container *ngIf="!oneWay;">
+      <div class="flex mt-3 justify-center">
+        <p class="text-[3.5vmin]"> 
+          Total: ${{vueloIda.price + vueloVuelta.price | currency:'ARS':'' : '1.0-0'}}</p>
+      </div>
+    </ng-container>
+
+      <div class="flex mt-3 justify-center"><button (click)="checkOut()"
+        class="boxbuton flex items-center p-2 text-[2.6vmin] rounded-lg bg-[#05203c] text-white font-semibold hover:bg-[#204a74] hover:border-transparent transition ease-in duration-300">Reservar
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="iconboton w-[3vmin]">
+          <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+        </svg>           
+        
+      </button></div>
+      </div>
+  
+  </ng-container>
+  
+  
+  <ng-template #error>
+  
+  </ng-template>
+  
+  

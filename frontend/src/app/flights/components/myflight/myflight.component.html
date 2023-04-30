@@ -1,0 +1,116 @@
+<ng-container *ngIf="vueloIda != null; else error">
+    <div class="main">
+    <div class="container">
+    
+        <div class="header flex h-11 bg-[#03a691]">
+            <div class="text flex my-auto pl-5 font-medium text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h1 class="pl-1">Reserva confirmada</h1>
+            </div>
+        </div>
+    
+        <!--  -->
+        <div class="flights">
+    
+    <div #ida>
+    
+     <div class="citiesinfo flex my-auto border-b-[2px] border-dashed border-slate-400">
+    
+        <div class="salida text-center">
+           <a class="city">{{vueloIda.departureCity}}</a>
+            <a class="hora m-auto text-xs">{{vueloIda.departureTime | date:'HH:mm'}}</a>
+            <a class="detailtime">{{vueloIda.departureTime | date:'E. dd LLLL yy'}}</a>
+        </div>
+    
+        <div class="details">
+    
+        <div class="text-xs auto text-center font-extralight">
+        <a>Ida</a>
+        </div>
+        <div class="flex justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+        </div>
+        
+        <div class="airline">
+        <img src="assets/{{vueloIda.airline}}.png"/>
+        </div>
+    
+        </div>
+    
+        <div class="llegada text-center">  
+           <a class="city">{{vueloIda.arrivalCity}}</a>
+            <a class="hora m-auto text-xs">{{vueloIda.arrivalTime | date:'HH:mm'}}</a>
+            <a class="detailtime">{{vueloIda.arrivalTime | date:'E. dd LLLL yy'}}</a>
+        </div>   
+    
+     </div>
+    </div>
+    
+    <div *ngIf="!isOneWay && vueloVuelta != null">
+        <div class="citiesinfo flex my-auto border-b-[2px] border-solid border-[#4300d2]">
+           <div class="salida text-center">
+              <a class="city">{{vueloVuelta.departureCity}}</a>
+               <a class="hora m-auto text-xs">{{vueloVuelta.departureTime | date:'HH:mm'}}</a>
+               <a class="detailtime">{{vueloVuelta.departureTime | date:'E. dd LLLL yy'}}</a>
+           </div>
+         
+           <div class="m-auto text-center">
+            <div class="text-xs font-extralight">
+            <a>Vuelta</a>
+            </div>
+            <div class="flex justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+            </div>
+            <div>
+            <img class="airline" src="assets/{{vueloVuelta.airline}}.png"/>
+            </div>
+            </div>
+       
+           <div class="llegada text-center">
+               
+              <a class="city">{{vueloVuelta.arrivalCity}}</a>
+               <a class="hora m-auto text-xs">{{vueloVuelta.arrivalTime | date:'HH:mm'}}</a>
+               <a class="detailtime">{{vueloVuelta.arrivalTime | date:'E. dd LLLL yy'}}</a>
+           
+           </div>   
+       
+        </div>
+       
+       
+       </div>
+    
+    <!-- pasajero info -->
+    <div>
+    <div class="name w-fit ml-2 pb-2">
+       <div class="my-0">Pasajero: {{userName}}</div>
+    </div>
+    </div>
+    
+    
+    </div>
+    </div>
+    
+    
+    <div class="py-4">
+            <div class="absolute flex right-0">
+                <button class="flex transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-black hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                
+            <span class="inline-block ml-1" routerLink="/account">Ir a mis reservas</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>
+              
+        </button>
+        </div>
+    </div>
+    </div>
+    </ng-container>
+    
+    <ng-template #error>
+        error
+    </ng-template>
+    

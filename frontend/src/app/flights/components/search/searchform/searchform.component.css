@@ -1,0 +1,202 @@
+.book {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .caja
+  {
+    width: 70%;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+  
+  .grid {
+    width: 100%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr 0fr; 
+    gap: 10px;
+    border-radius: 10px;
+  }
+  
+  .inputbox{
+    transition: border .4s ease;
+    background-color: #fafafa;
+  }
+  .inputbox:hover{
+    border: 1.2px solid #c2c2c2 !important;
+  }
+  
+  input {
+    background-color: #fafafa;
+    color: black;
+    width: 100%;
+  }
+  
+  .busbot{
+    width: min-content;
+  }  
+
+  
+  @media screen and (max-width: 825px)  
+  {
+    .grid {
+      grid-template-columns: auto; 
+    }
+    .caja{
+      width: 95%;
+      padding: 15px;
+    }
+
+    .busbot{
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100%;
+      margin: auto;
+      font-size: 20px;
+      }
+    
+  }
+
+  /*  */
+   .mat-calendar {
+    width: 270px!important;
+    height: 290px!important;
+    padding: 5px;
+}
+.mat-datepicker-content{
+  background-color: #210340;
+  border-radius: 10px !important;
+}
+.mat-calendar-table-header th{
+  font-weight: 900 !important;
+  padding: 0px !important;
+  font-family: Rubik;
+}
+.mat-calendar-table-header-divider{
+  position: inherit!important;
+}
+.mat-calendar-body-label, .mat-calendar-period-button{
+  font-size: 0px ;
+}
+.mat-calendar-content{
+  padding: 0px !important;
+}
+.mat-focus-indicator:hover {
+  background-color:#535353!important;
+  color: #ffffff!important;
+}
+.mat-calendar-body-selected{
+  background-color:#535353!important;
+  color: #ffffff!important;
+    }
+  .mat-calendar-body-cell-content{
+      border-radius: 3px !important;
+      padding: 0px !important;
+    }
+    .mat-date-range-input-separator{
+      color: rgb(47, 47, 47);
+      margin: 0 2px !important;
+    }
+    .mat-date-range-input-separator-hidden{
+      opacity: 1!important;
+    }
+    .mat-calendar-controls{
+      margin: 0!important;
+    }
+.mat-calendar-header{
+  padding: 0px !important;
+}
+
+.mat-calendar-body-cell-content{
+  background-color: transparent !important;
+}
+.mat-calendar-body-selected{
+  background-color:#565656!important;
+}
+.mat-calendar-body-in-range::before{
+  background-color: #4300d2!important; 
+}
+.mat-calendar-body-in-preview .mat-calendar-body-cell-preview{
+  border-top: 0px!important;
+  border-bottom: 0px!important;
+  background-color: #4300d2 !important;
+}
+
+.mat-calendar-period-button{
+  font-size: 14px!important;
+font-family: 'Rubik', sans-serif;
+font-weight: 600;
+}
+.mat-calendar-body-cell .mat-calendar-body-active{
+  background-color:#565656!important;
+}
+.mat-calendar-body {
+font-size: 18px!important;
+font-family: 'Rubik', sans-serif;
+font-weight: 700;
+}
+ .mat-calendar-body-range-end > .mat-calendar-body-selected {
+  background-color:#565656!important;
+  color: #ffffff!important;
+  }
+ .mat-calendar-body-range-start > .mat-calendar-body-selected {
+  background-color:#565656!important;
+  color: #ffffff!important;
+  }
+
+
+  /* autocomplete */
+  .mdc-menu-surface.mat-mdc-autocomplete-panel{
+    padding: 0px !important;  
+  }
+  .mat-mdc-option{
+  padding-left: 5px !important;
+  font-family: Rubik;
+  }
+  .mat-mdc-option .mdc-list-item__primary-text{
+    display: flex!important;
+  }
+
+  .mdc-menu-surface{
+    background-color: #210340;
+  }
+  /* mat radio */
+
+  .mdc-form-field>label{
+    padding-left: 0 !important;
+    padding-bottom: 8px !important;
+    font-family: 'Rubik', sans-serif;
+    color: #4a4a4a !important;
+    font-weight: bold !important;
+    outline: none;
+  }
+
+  .cityname{
+    outline: none;
+
+  }
+  .mat-datepicker-input{
+    width: 100%;
+  }
+
+  .mat-date-range-input-mirror{
+    white-space: initial !important; 
+  }
+  
+  .mat-mdc-radio-button .mdc-radio{
+    padding: 0px !important;
+    padding-bottom: 10px !important;
+    padding-right: 5px !important ;
+  }
+  .mdc-radio__background{
+  margin-left: 2px !important;
+  }
+
+  .mat-mdc-radio-button .mdc-radio .mdc-radio__background::before{
+    background-color: initial !important;
+  }

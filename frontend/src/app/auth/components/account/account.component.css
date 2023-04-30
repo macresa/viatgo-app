@@ -1,0 +1,64 @@
+.main{
+    width: 60%;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 15px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.text{
+    font-family: 'Ubuntu', sans-serif;                                      
+}
+
+.card{
+    
+    width: 95%;
+    margin: auto;
+}
+.card .content{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    gap: 5px;
+}
+
+.header{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    font-size: 2.5vmin;
+}
+
+.asd{
+    display: flex;
+    background-color: #204a74;
+    width: 100%;
+    color: white;
+    font-family: 'Ubuntu', sans-serif; 
+    font-size: 2vmin;
+    align-items: center;
+    align-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .main{
+        padding: 10px;
+    }
+    .main{
+        width: 95%;
+    }
+    .card{  
+        width: 100%;
+    }
+    .header{
+        font-size: 3.2vmin;
+    }
+    .asd{
+        font-size: 2.5vmin;
+    }
+    .info{
+        font-size: 3.8vmin;
+    }
+  }
+  
