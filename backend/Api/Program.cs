@@ -3,6 +3,8 @@ using Application.Features.Bookings;
 using Application.Features.Flights;
 using Application.Features.Auth;
 using Infrastructure;
+using Infrastructure.Persistence;
+using Api;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer(); 
@@ -22,6 +24,13 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+    context.Database.EnsureDeleted();
+    context.Database.EnsureCreated();
+    Seeder.Seed(context);
+}
 
 app.UseCors();
 
