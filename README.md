@@ -1,4 +1,4 @@
-La api es una Minimal API en .NET 7 en la que utilizo como base la [Arquitectura Vertical](https://jimmybogard.com/vertical-slice-architecture/) junto con Entity Framework Core para el acceso a los datos en SQL server, también usa el patrón repositorio el cual se inyecta en la capa de aplicación para separar la lógica de negocio de la capa de persistencia de datos.
+La api es una Minimal API en .NET 7 en la que utilizo como base la [Arquitectura Vertical](https://jimmybogard.com/vertical-slice-architecture/) junto con Entity Framework Core para el acceso a los datos en SQL server, también usa el patrón repositorio para poder inyectar las abstracciones en la capa de aplicación y así separar la lógica de negocio de la capa de persistencia de datos.
 
 
 En este proyecto utilicé las siguientes libreras:
